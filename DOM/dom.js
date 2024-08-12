@@ -19,4 +19,4 @@ window.onload = ()=>{
 }
 
 
-console.log("hekkoo");
+
