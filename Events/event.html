@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+</head>
+<body>
+    <ul id="image">
+        <li><img src="https://imgs.search.brave.com/TmuC-ABekNMwlHmZAAHY7FrzNZMsijp-9O1vtZeuv14/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXNraW5jYXJlLmNv/bS9jZG4vc2hvcC9m/aWxlcy9EQUlMWV9f/MV8zZDI4MWUwYS0w/Zjg3LTRlNDMtOWZl/ZS04N2MyOTY4YTgz/OWIuanBnP3Y9MTcx/MjI0MDA2NiZ3aWR0/aD0xODAw" alt="" class="cream"></li>
+        <li><img src="https://imgs.search.brave.com/0Sh9dfBS3KI5xSaiM8Bi6tJ25kvpv-tMfDP7i7MiQnA/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/aW1hZ2Vjb21pY3Mu/Y29tL2Fzc2V0cy9p/L3Nlcmllcy8xMDQw/ODYxL3Byb2Nlc3Nl/ZC1ENDBDOTI5MS1D/QkZCLTRBNDEtQkE4/QS0wRjQ0RDcxRjc5/NTJfMTQ3NTgxYTdi/ZTAyMTE2NTgxYTBm/NjUzNTMzYTI2YjEu/anBn" alt=""id="devil"></li>
+        <li><img src="https://imgs.search.brave.com/KJm5w-cbELGkNcYvZ6RLPOkg9y9vZK_xGQGWeDH31N8/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy9i/L2I2L1BlbmNpbF9k/cmF3aW5nX29mX2Ff/Z2lybF9pbl9lY3N0/YXN5LmpwZw" alt="" class="skectch"></li>
+    </ul>
+    <script>
+        // const ulClicks = document.getElementById('image');
+        // ulClicks.addEventListener('click',(e)=>{console.log("Its me abhishek bhatta"),  e.stopPropagation()},false);
+        // const images = document.getElementById('devil');
+        // images.addEventListener('click',(e)=>{console.log("Don dai is on the floor"),e. preventDefault(),e.stopPropagation()},true);
+
+        //to remove the image 
+
+       const events = document.getElementById('image');
+       events.addEventListener('click',(r)=>{
+        if(r.target.tagName === "IMG"){
+              const removes = r.target.parentNode;
+        // console.log(removes.remove()); //one method to remove an image
+        console.log(removes.parentNode.removeChild(removes));// another method to remove the child
+        }
+      
+       })
+    </script>
+</body>
+</html>
+
+<!-- //addEventListener
+
+false is Bubbling -- button to top ,True or False
+true is capturing --- top to button True or False (if the event is true the it goes from up to down otherwise down to up) 
+stopPropogation -- helps to terminate the bubble execution of parent and it only execute the child only
+preventDefault -- The preventDefault() method is used to prevent these default behaviors from occurring. This is useful when you want to override the default behavior with your custom functionality.
+-->
+
