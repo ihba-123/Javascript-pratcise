@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Request</title>
+</head>
+<body>
+    <h1>API Request</h1>
+    <img src="imgs.png" alt="Initial Image" id="pic">
+    <p id="user-name"></p>
+    <p id="user-followers"></p>
+    <button id="btns">Click</button>
+    <button id="rembtn">Remove</button>
+    <button id="showbtn">Show</button>
+    
+    <script>
+        const picture = document.getElementById("pic");
+        const btn = document.getElementById("btns");
+        const removePic = document.getElementById("rembtn");
+        const showPic = document.getElementById("showbtn");
+        const userNameElement = document.getElementById("user-name");
+        const userFollowersElement = document.getElementById("user-followers");
+
+        btn.addEventListener("click", () => {
+            // Change the picture
+            picture.src = 'https://th.bing.com/th/id/OIP.A07WhNDHO3ffqfJfMmwFeAHaEK?w=318&h=180&c=7&r=0&o=5&pid=1.7';
+
+            // Fetch details from the API
+            const requestUrl = 'https://api.github.com/users/hiteshchoudhary';
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET', requestUrl);
+            xhr.onreadystatechange = function() { 
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    const data = JSON.parse(this.responseText);
+
+                    // Display the user's name and follower count
+                    userNameElement.textContent = `Name: ${data.name}`;
+                    userFollowersElement.textContent = `Followers: ${data.followers}`;
+                }
+            }
+            xhr.send();
+        });
+
+        // Temporarily hide the picture
+        removePic.addEventListener("click", () => {
+            picture.style.display = "none";
+        });
+
+        // Show the picture again
+        showPic.addEventListener("click", () => {
+            picture.style.display = "block";
+        });
+    </script>
+</body>
+</html>
