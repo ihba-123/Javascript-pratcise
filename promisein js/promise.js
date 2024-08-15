@@ -20,6 +20,13 @@ Inside an async function, you use await before a task that returns a Promise (li
 
 
 
+A Promise is in one of these states:
+
+pending:    initial state, neither fulfilled nor rejected.
+fulfilled:  meaning that the operation was completed successfully.
+rejected:   meaning that the operation failed.
+
+
 */
 
 
